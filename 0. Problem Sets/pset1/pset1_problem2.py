@@ -17,7 +17,7 @@ print('Number of times bob occurs is:', len(findall('b(?=ob)',s)))
 '''
 # Method 2: Counting through iteration and string indexing
 bobs = 0
-for i in range(len(s)-3):
+for i in range(len(s)-2):
     if s[i:i+3] == 'bob':
         bobs += 1
 print('Number of times bob occurs is:', bobs)
