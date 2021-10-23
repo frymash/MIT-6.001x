@@ -19,13 +19,13 @@ move on to a different part of the course. If you have time, come back to
 this problem after you've had a break and cleared your head.
 '''
 
-s = 'azcbobobegghakl'
+s = 'ttifipjrif'
 s = s.lower()
 substr = ''
 substr_list = []
 
 for i in range(len(s)):
-    if s[i] == s[-1] or s[i] > s[i+1]:
+    if s[i] > s[i+1] or i == len(s)-1:
         if s[i] >= s[i-1]:
             substr += s[i]
         substr_list.append(substr)
