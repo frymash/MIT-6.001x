@@ -6,9 +6,14 @@ animals['d'].append('dingo')
 
 # Submit the code below this line
 def biggest(aDict):
+    '''
+    aDict: A dictionary of lists
+
+    returns the key with the longest list of values
+    '''
     largestkey = None
     for i in range(len(aDict)):
-        #print(list(aDict.values())[i])
+        # print(list(aDict.values())[i])
         if largestkey is None or len(list(aDict.values())[i]) > len(largestkey[1]):
             largestkey = list(aDict.items())[i]
     return largestkey[0]
