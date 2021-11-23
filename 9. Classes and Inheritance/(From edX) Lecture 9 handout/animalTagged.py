@@ -4,6 +4,7 @@ Created on Sat Jun 11 11:14:45 2016
 
 @author: ericgrimson
 """
+from icecream import ic
 
 class Animal(object):
     def __init__(self, age):
@@ -54,7 +55,7 @@ class Rabbit(Animal):
 
 
 
-
+'''
 peter = Rabbit(2)
 peter.set_name('Peter')
 hopsy = Rabbit(3)
@@ -63,6 +64,25 @@ cotton = Rabbit(1, peter, hopsy)
 cotton.set_name('Cottontail')
 mopsy = peter + hopsy
 print(mopsy == cotton)
+'''
+
+rabbit1 = Rabbit(2)
+rabbit1.set_name("John")
+rabbit2 = Rabbit(3)
+rabbit2.set_name("Jill")
+rabbit3 = rabbit1 + rabbit2
+ic(rabbit3.get_parent1())
+ic(rabbit3.get_parent2())
+print(rabbit3.get_parent1())
+print(rabbit3.get_parent2())
+
+rabbit4 = rabbit2 + rabbit1
+print(rabbit4 == rabbit3)
+rabbit5 = rabbit1 + rabbit2
+print(rabbit3 == rabbit5)
+rabbit6 = rabbit3 + rabbit5
+print(rabbit3 == rabbit6)
+
 
 
 
