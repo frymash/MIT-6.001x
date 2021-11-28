@@ -1,5 +1,5 @@
 import random
-from string import ascii_lowercase
+import string
 
 WORDLIST_FILENAME = "words.txt"
 
@@ -33,35 +33,34 @@ def getGuessedWord(secretWord, lettersGuessed):
     return lettersGuessedSoFar
 
 def getAvailableLetters(lettersGuessed):
-    unguessedLetters = list(ascii_lowercase)
-    try:
-        for i in lettersGuessed:
-            unguessedLetters.remove(i)
-    except ValueError:
-        print(f"ValueError: '{i}' couldn't be removed from unguessedLetters")
-        exit()
-        
+    unguessedLetters = list(string.ascii_lowercase)
+    for i in lettersGuessed:
+        unguessedLetters.remove(i)
     unguessedLetters = ''.join(unguessedLetters)
     return unguessedLetters
 
 def hangman(secretWord):
     print("Welcome to the game, Hangman!")
-    print("I am thinking of a word that is", len(secretWord), "words long.")
+    print("I am thinking of a word that is", len(secretWord), "letters long.")
     print("-------------")
     lettersGuessed = []
-    guesses_left = 10
+    guesses_left = 8
 
     while True:
-      print(f'You have {guesses_left} guesses left.')
+      print("You have", guesses_left, " guesses left.")
       print("Available letters:", getAvailableLetters(lettersGuessed))
+
       while True:
         guess = input("Please guess a letter: ")
+
         if guess == "":
           print("You haven't entered a letter, please try again.\n")
           continue
-        elif len(guess) != 1 or guess not in ascii_lowercase: 
-          print(f"Your guess was '{guess}', which isn't a letter in the alphabet. Please try again.")
+
+        elif len(guess) != 1 or guess not in string.ascii_lowercase: 
+          print("Your guess was", guess, ", which isn't a letter in the alphabet. Please try again.")
           continue
+
         break
 
       guess = guess.lower()
@@ -90,7 +89,7 @@ def hangman(secretWord):
         break
       else:
         if guesses_left == 0:
-          print(f"Sorry, you ran out of guesses. The word was {secretWord}. ")
+          print("Sorry, you ran out of guesses. The word was", secretWord)
           break
 
 secretWord = chooseWord(wordlist).lower()

@@ -2,9 +2,11 @@
 # Edited by ozervesh on Tue 23 Nov 2021, 2:16pm
 # Took approximately 3h 30min to write and completely debug
 
+# Autograder doesn't like fstrings and having string.ascii_lowercase as ascii_lowercase.
+
 import random
+import string
 from icecream import ic
-from string import ascii_lowercase
 
 WORDLIST_FILENAME = "words.txt"
 
@@ -82,13 +84,10 @@ def getAvailableLetters(lettersGuessed):
 
     # Convert ascii_lowercase to a list and remove any letters which
     # also appear in lettersGuessed to get the unguessed letters
-    unguessedLetters = list(ascii_lowercase)
-    try:
-        for i in lettersGuessed:
-            unguessedLetters.remove(i)
-    except ValueError:
-        print(f"ValueError: '{i}' couldn't be removed from unguessedLetters")
-        exit()
+    unguessedLetters = list(string.ascii_lowercase)
+
+    for i in lettersGuessed:
+        unguessedLetters.remove(i)
         
     unguessedLetters = ''.join(unguessedLetters)
     return unguessedLetters
@@ -114,13 +113,13 @@ def hangman(secretWord):
     Follows the other limitations detailed in the problem write-up.
     '''
     print("Welcome to the game, Hangman!")
-    print("I am thinking of a word that is", len(secretWord), "words long.")
+    print("I am thinking of a word that is", len(secretWord), "letters long.")
     print("-------------")
     lettersGuessed = []
-    guesses_left = 10
+    guesses_left = 8
 
     while True:
-      print(f'You have {guesses_left} guesses left.')
+      print("You have", guesses_left, " guesses left.")
       # At the start of the game, let the user know how many letters the 
       # secretWord contains.
       print("Available letters:", getAvailableLetters(lettersGuessed))
@@ -135,8 +134,8 @@ def hangman(secretWord):
           continue
 
         # to account for punctuation marks and non-Latin letters
-        elif len(guess) != 1 or guess not in ascii_lowercase: 
-          print(f"Your guess was '{guess}', which isn't a letter in the alphabet. Please try again.")
+        elif len(guess) != 1 or guess not in string.ascii_lowercase: 
+          print("Your guess was", guess, ", which isn't a letter in the alphabet. Please try again.")
           continue
 
         break
@@ -185,7 +184,7 @@ def hangman(secretWord):
         break
       else:
         if guesses_left == 0:
-          print(f"Sorry, you ran out of guesses. The word was {secretWord}. ")
+          print("Sorry, you ran out of guesses. The word was", secretWord)
           break
 
 
