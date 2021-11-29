@@ -119,7 +119,7 @@ def hangman(secretWord):
     guesses_left = 8
 
     while True:
-      print("You have", guesses_left, " guesses left.")
+      print("You have", guesses_left, "guesses left.")
       # At the start of the game, let the user know how many letters the 
       # secretWord contains.
       print("Available letters:", getAvailableLetters(lettersGuessed))

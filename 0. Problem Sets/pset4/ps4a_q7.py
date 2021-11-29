@@ -1,4 +1,5 @@
 # The 6.00 Word Game
+# Edited by ozervesh on Mon 29 Nov 2021, 9:19am
 
 from ps4b import *
 import random
@@ -272,9 +273,7 @@ def playGame(wordList):
 
             if user_input == "r":
                 # try: check if hand is already defined
-                try:
-                    if hand:
-                        pass
+                try: hand
                 # except: inform the user that a hand hasn't been played and restart the loop
                 except:
                     print("You have not played a hand yet. Please play a new hand first!\n")

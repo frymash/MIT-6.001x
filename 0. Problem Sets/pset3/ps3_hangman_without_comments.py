@@ -47,7 +47,7 @@ def hangman(secretWord):
     guesses_left = 8
 
     while True:
-      print("You have", guesses_left, " guesses left.")
+      print("You have", guesses_left, "guesses left.")
       print("Available letters:", getAvailableLetters(lettersGuessed))
 
       while True:
