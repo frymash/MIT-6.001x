@@ -1,4 +1,7 @@
+# Edited by ozervesh on Mon 29 Nov 2021, 9:28pm
+
 import random 
+from icecream import ic
 
 class Hand(object):
     def __init__(self, n):
@@ -82,17 +85,36 @@ class Hand(object):
         word: string
         returns: Boolean (if the word was or was not made)
         """
-        # Your code here
-        raise NotImplementedError()
+        # make a copy of the hand and use that as the updated hand
+        updated_hand = self.hand.copy()
+        ic(updated_hand)
+        # try: check if updated_hand has all the letters to form the word quoted in the parameter
+        try:
+            for letter in word:
+                updated_hand[letter] -= 1
+        # except: if the word cannot be formed, return False
+        except KeyError:
+            return False
+        # else: check if any letters in updated_hand have a count < 0. if so, return False
+        else:
+            ic(updated_hand)
+            for v in updated_hand.values():
+                if v < 0:
+                    return False
+            # update hand
+            self.hand = updated_hand
+            return True
 
-    
+'''
 myHand = Hand(7)
 print(myHand)
 print(myHand.calculateLen())
 
 myHand.setDummyHand('aazzmsp')
+ic(myHand.update('zz'))
 print(myHand)
 print(myHand.calculateLen())
 
-myHand.update('za')
+# ic(myHand.update('zzz'))
 print(myHand)
+'''
