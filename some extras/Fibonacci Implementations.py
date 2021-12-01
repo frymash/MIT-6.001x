@@ -1,9 +1,8 @@
 import time
 from icecream import ic
 
-# This program includes 3 different implementations of a Fibonacci number-generating algorithm
-
-
+# This program includes 4 different implementations of a Fibonacci number-generating algorithm
+'''
 # 1. Using a generator to generate Fibonacci numbers
 def genTest():
     fib0 = 0
@@ -19,6 +18,7 @@ for n in genTest():
     print(f"Fibonacci number of {count}:",n)
     count += 1
     time.sleep(0.2)
+'''
 
 '''
 # 2. Using dictionaries and recursion to generate Fibonacci numbers
@@ -43,3 +43,19 @@ def fib(n):
 
 ic(fib(10)) # takes significantly longer for greater values of n
 '''
+
+# 4. Using pure iteration to generate Fibonacci numbers
+def fib_iter(n):
+    fib0 = 0
+    fib1 = 1
+    result = 0
+    x = 1
+    while x < n:
+        result = fib0 + fib1
+        x += 1
+        fib0 = fib1
+        fib1 = result
+    return result
+
+for n in range(10):
+    ic(n, fib_iter(n))
