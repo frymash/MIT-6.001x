@@ -5,7 +5,7 @@ The answers below have been checked and these are the correct answers
 
 Questions which were incorrectly answered on the first attempt:
 - 4-1 - I picked O(log(n)) instead of the correct O(1) due to the modulo.
-- 6-3 - I picked `No change.` when the answer was `modSwapSort now orders the list in descending order for all lists.`
+- 6-3 - I picked `No change.` when the answer was `modSwapSort now orders the list in descending order for all lists.` This is a selection sort algorithm. Although `modSwapSort` does find the smallest item at first, the following iteration through the inner loop (`for j in range(len(L)`) will bring the larger item to the front of the list. The lack of `i+1` in the inner loop's range (vs `for j in range(i+1, len(L)`) means that the sorted portion of the list is still evaluated. The eventual result is that the list will be sorted in reverse.
 
 ## Problem 1
 |No.|Question|Answer|
