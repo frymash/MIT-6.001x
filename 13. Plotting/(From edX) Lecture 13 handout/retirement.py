@@ -84,5 +84,3 @@ displayRetirementWithMonthsAndRates([500, 700, 900, 1100],
 
 plt.show()
   
-
-        
