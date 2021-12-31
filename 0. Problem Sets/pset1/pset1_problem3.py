@@ -25,7 +25,9 @@ substr = ''
 substr_list = []
 
 for i in range(len(s)):
-    if s[i] > s[i+1] or i == len(s)-1:
+
+    if i == len(s)-1 or s[i] > s[i+1]:
+        
         if s[i] >= s[i-1]:
             substr += s[i]
         substr_list.append(substr)
