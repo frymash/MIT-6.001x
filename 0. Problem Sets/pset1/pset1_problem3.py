@@ -24,16 +24,16 @@ s = s.lower()
 substr = ''
 substr_list = []
 
-for i in range(len(s)):
+for i, letter in enumerate(s):
 
-    if i == len(s)-1 or s[i] > s[i+1]:
+    if i == len(s)-1 or letter > s[i+1]:
         
-        if s[i] >= s[i-1]:
-            substr += s[i]
+        if letter >= s[i-1]:
+            substr += letter
         substr_list.append(substr)
         substr = ''
         
-    elif s[i] <= s[i+1]:
-        substr += s[i]
+    elif letter <= s[i+1]:
+        substr += letter
 
 print('Longest substring in alphabetical order is:', max(substr_list, key=len))

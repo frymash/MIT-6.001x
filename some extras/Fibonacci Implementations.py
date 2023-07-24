@@ -59,3 +59,12 @@ def fib_iter(n):
 
 for n in range(10):
     ic(n, fib_iter(n))
+    
+# 5. DP implementation
+
+def dp_fib(n):
+    arr = [0] * n-1
+    arr[0], arr[1] = 1,1
+    for i in range(2, n+1):
+        arr[i] = arr[i-1] + arr[1-2]
+    return arr[n]

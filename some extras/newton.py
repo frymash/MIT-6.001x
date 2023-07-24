@@ -6,9 +6,11 @@
 # def fn-for-g(g: float) -> Any:
 #   (... g)
 
+from typing import Union
+
 print("--- USING NEWTON'S METHOD TO APPROXIMATE SQUARE ROOTS---")
 
-def newton(k: int|float, g: int|float, e: float = 0.01) -> None:
+def newton(k: Union[int,float], g: Union[int,float], e: float = 0.01) -> None:
     """ Approximates the square root of a number k by using Newton's method
     with initial guess g and epsilon e
 
